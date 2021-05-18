@@ -1,0 +1,6 @@
+(library
+ (inline_tests)
+ (name playground)
+ (libraries core)
+ (preprocess
+  (pps ppx_inline_test)))
