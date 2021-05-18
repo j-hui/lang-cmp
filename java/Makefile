@@ -19,6 +19,9 @@ $(CLASSES): $(OUT_DIR)/%.class: $(SRC_DIR)/%.java $(OUT_DIR)
 $(OUT_DIR):
 	mkdir -p $(OUT_DIR)
 
+run/%: $(OUT_DIR)/%.class
+	CLASSPATH=$(OUT_DIR) java $*
+
 .PHONY: clean
 clean:
 	rm -rf $(OUT_DIR)

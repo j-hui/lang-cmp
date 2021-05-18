@@ -1,7 +1,14 @@
-# Language Comparison Test Bench: Scala
+# Language Comparison Playground: Scala
 
-## Instructions
+## Build System: sbt
 
-```sh
+This uses the [sbt build tool][sbt], which I haven't put enough time into
+setting up yet.
+
+To run:
+
+```
 sbt run
 ```
+
+[sbt]: https://www.scala-sbt.org/

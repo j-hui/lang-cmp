@@ -4,14 +4,19 @@ CXXFLAGS=-g -Wall
 LDFLAGS=
 LDLIBS=
 
-tests=lrvalues
+targets=lrvalues
 
 .PHONY: default
-default: $(tests)
+default: $(targets)
 
-$(foreach t, $(tests), $(t)):
-$(foreach t, $(tests), $(t).o):
+$(foreach t, $(targets), $(t)):
+$(foreach t, $(targets), $(t).o):
+
+.PHONY: help
+help:
+	@echo "Possible targets: $(targets)"
+
 
 .PHONY: clean
 clean:
-	rm -rf *.o $(tests)
+	rm -rf *.o $(targets)

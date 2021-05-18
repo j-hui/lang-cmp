@@ -4,7 +4,7 @@ let local_var () =
   x := !x + y;
   x
 
-let%test _ = !(local_var ()) = 3
+let%test "local variable" = !(local_var ()) = 3
 
 let func_var () =
   let do_assign r v () =
@@ -15,7 +15,7 @@ let func_var () =
   do_assign x (!x + y) ();
   x
 
-let%test _ = !(func_var ()) = 3
+let%test "function variable" = !(func_var ()) = 3
 
 let local_array () =
   let x = [| 1; 1 |] in
@@ -23,7 +23,7 @@ let local_array () =
   x.(0) <- x.(0) + y;
   x
 
-let%test _ =
+let%test "local array" =
   let a = local_array () in
   a.(0) = 3 && a.(1) = 1
 
@@ -36,6 +36,10 @@ let func_array () =
   do_assign x (x.(0) + y) ();
   x
 
+let%test "function array" =
+  let a = func_array () in
+  a.(0) = 3 && a.(1) = 1
+
 type s = {
   mutable i: int;
   mutable b: bool;
@@ -47,7 +51,7 @@ let local_struct () =
   x.i <- x.i + y;
   x
 
-let%test _ =
+let%test "local struct" =
   let s = local_struct () in
   s.i = 3 && s.b = true
 
@@ -60,6 +64,6 @@ let func_struct () =
   do_assign x (x.i + y) ();
   x
 
-let%test _ =
+let%test "function struct" =
   let s = func_struct () in
   s.i = 3 && s.b = true
