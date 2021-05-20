@@ -23,6 +23,7 @@ class LocalVar {
   }
 }
 
+/** Also provided in Java standard library */
 class Box<T> {
   T i;
 
@@ -106,6 +107,16 @@ class FuncStruct {
 
     assert x.i == 3;
     assert x.b == true;
+  }
+}
+
+class Anomalies {
+  public static void example() {
+    new int[]{1, 1}[0] = 3;
+
+    new S(1, true).i = 3;
+
+    int x = new int[]{1, 1}[0];
   }
 }
 
