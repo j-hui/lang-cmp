@@ -4,7 +4,7 @@
 //!
 //! Place expressions are what Rust's reference calls l-values, and can be
 //! identified syntactically. That is, only variables, array indexes, field
-//! accesses, and dereferences are considered place references.
+//! accesses, and dereferences are considered place expressions.
 //!
 //! Mutability is determined by a combination of the type system and its
 //! syntactic context. For variables, this amounts to whether the variable was
@@ -259,5 +259,22 @@ pub mod func_struct {
 
         assert_eq!(x, S { i: 3, b: true });
     }
+}
 
+pub mod anomalies {
+    #[derive(Debug, PartialEq, Eq)]
+    struct S {
+        i: i32,
+        b: bool,
+    }
+
+    #[test]
+    fn assign_to_array_literal() {
+        [4, 3][0] = 2
+    }
+
+    #[test]
+    fn assign_to_struct_literal() {
+        S { i: 1, b: true }.i = 3
+    }
 }
