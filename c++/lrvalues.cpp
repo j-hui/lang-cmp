@@ -103,7 +103,8 @@ struct S {
 S f() { return S{3}; }
 void example(void) {
   f() = S{2}; // this is assignable
-              // f().x = 3;   // yet this is not
+
+  // f().x = 3;   // yet this is not
 }
 } // namespace assign_to_func
 namespace assign_to_assign {
