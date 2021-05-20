@@ -25,7 +25,7 @@ object LocalVar {
   def example() = {
     var x: Int = 1
     val y: Int = 2
-    x = x + y;
+    x = x + y
     assert(x == 3)
   }
 }
@@ -49,7 +49,8 @@ object LocalArray {
   def example() = {
     var x: Array[Int] = Array(1, 1)
     val y: Int = 2
-    x(0) = x(0) + y;
+    x(0) = x(0) + y
+
     assert(x(0) == 3)
     assert(x(1) == 1)
   }
