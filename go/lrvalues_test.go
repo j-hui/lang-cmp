@@ -70,15 +70,20 @@ func TestLocalStruct(t *testing.T) {
 }
 
 func doAssignStruct(r *S, v int) {
-  r.i = v
+	r.i = v
 }
 
 func TestFuncStruct(t *testing.T) {
 	x := S{i: 1, b: true}
 	const y = 2
 
-	doAssignStruct(&x, x.i + y)
+	doAssignStruct(&x, x.i+y)
 
 	assertEq(t, x.i, 3)
 	assertEq(t, x.b, true)
+}
+
+func TestAnomalies(t *testing.T) {
+	[]int{1, 1}[0] = 3 // this is allowed
+	// S{i: 1, b: true}.i = 3 // but this is forbidden?
 }
