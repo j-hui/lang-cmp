@@ -67,3 +67,6 @@ let func_struct () =
 let%test "function struct" =
   let s = func_struct () in
   s.i = 3 && s.b = true
+
+let anomalies () =
+  ref 1 := 1
