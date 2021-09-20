@@ -3,3 +3,4 @@
 #![allow(dead_code)]
 
 pub mod lrvalues;
+pub mod adt;
